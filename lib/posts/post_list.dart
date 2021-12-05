@@ -57,7 +57,9 @@ class _postListState extends State<postList> {
                       ),
                     ),
                     IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Auth().deletePost(snapshots.data!.docs[index].id);
+                      },
                       icon: Icon(
                         Icons.delete,
                         color: Color(0xffFF8573),

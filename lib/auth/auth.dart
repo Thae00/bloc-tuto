@@ -42,4 +42,8 @@ class Auth {
       "description": description,
     });
   }
+
+  deletePost(String id) {
+    FirebaseFirestore.instance.collection("posts").doc(id).delete();
+  }
 }
