@@ -6,5 +6,6 @@ class blocPage extends Bloc<blocEvent, BlocState> {
   blocPage() : super(InitialState()) {
     on<loginEvent>((event, emit) => emit(loginState()));
     on<registerEvent>((event, emit) => emit(registerState()));
+    on<homeEvent>((event, emit) => emit(homeState()));
   }
 }

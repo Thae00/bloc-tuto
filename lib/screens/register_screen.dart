@@ -1,3 +1,4 @@
+import 'package:bloctuto/auth/auth.dart';
 import 'package:bloctuto/bloc_page/bloc_event.dart';
 import 'package:bloctuto/bloc_page/bloc_page.dart';
 import 'package:flutter/material.dart';
@@ -168,8 +169,16 @@ class _registerScreenState extends State<registerScreen> {
                                 height: 50,
                                 width: MediaQuery.of(context).size.width * 0.4,
                                 child: OutlinedButton(
-                                  onPressed: () {
-                                    if (key.currentState!.validate()) {}
+                                  onPressed: () async {
+                                    if (key.currentState!.validate()) {
+                                      Map<String, dynamic> status = await Auth()
+                                          .register(emailController.text,
+                                              passwordController.text);
+                                      if (status['status']) {
+                                        BlocProvider.of<blocPage>(context)
+                                            .add(homeEvent());
+                                      }
+                                    }
                                   },
                                   child: Text(
                                     'Register',

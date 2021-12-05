@@ -6,8 +6,12 @@ import 'package:bloctuto/screens/login_screen.dart';
 import 'package:bloctuto/screens/register_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:firebase_core/firebase_core.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+
   runApp(
     MultiBlocProvider(
       providers: [
@@ -50,6 +54,8 @@ class _MyHomePageState extends State<MyHomePage> {
             return loginScreen();
           } else if (state is registerState) {
             return registerScreen();
+          } else if (state is homeState) {
+            return home();
           } else {
             return home();
           }

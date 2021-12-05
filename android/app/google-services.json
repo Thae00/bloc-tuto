@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "87214987783",
+    "project_id": "bloctuto",
+    "storage_bucket": "bloctuto.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:87214987783:android:321e1536ad5bffe96da8a2",
+        "android_client_info": {
+          "package_name": "com.example.bloctuto"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "87214987783-8d2kbu2qsh061s7knloj27p9qq8u3fda.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC0tEpXOwXecYLkE7Uza4SqIc_lzXnLDpQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "87214987783-8d2kbu2qsh061s7knloj27p9qq8u3fda.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
