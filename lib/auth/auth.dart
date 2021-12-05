@@ -22,4 +22,11 @@ class Auth {
       "description": des,
     });
   }
+
+  //take post list from firestore in collection("posts")
+  Stream<QuerySnapshot> getPosts() async* {
+    Stream<QuerySnapshot> posts =
+        FirebaseFirestore.instance.collection("posts").snapshots();
+    yield* posts;
+  }
 }
