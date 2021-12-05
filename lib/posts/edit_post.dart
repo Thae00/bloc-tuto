@@ -1,4 +1,5 @@
 import 'package:bloctuto/auth/auth.dart';
+import 'package:bloctuto/posts/post_list.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
@@ -141,10 +142,9 @@ class _editPostState extends State<editPost> {
                               child: OutlinedButton(
                                 onPressed: () {
                                   if (key.currentState!.validate()) {
-                                    Auth().createPost(editTitleController.text,
-                                        editDesController.text);
-                                    editTitleController.text = "";
-                                    editDesController.text = "";
+                                    Auth().updatePost(editTitleController.text,
+                                        editDesController.text, widget.id);
+                                    Navigator.pop(context);
                                   }
                                 },
                                 child: Text(

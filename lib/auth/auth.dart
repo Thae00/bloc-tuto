@@ -35,4 +35,11 @@ class Auth {
         await FirebaseFirestore.instance.collection("posts").doc(id).get();
     return postId;
   }
+
+  updatePost(String title, String description, String id) {
+    FirebaseFirestore.instance.collection("posts").doc(id).update({
+      "title": title,
+      "description": description,
+    });
+  }
 }
