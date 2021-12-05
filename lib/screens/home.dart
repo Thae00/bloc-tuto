@@ -1,3 +1,4 @@
+import 'package:bloctuto/auth/auth.dart';
 import 'package:bloctuto/bloc_page/bloc_event.dart';
 import 'package:bloctuto/bloc_page/bloc_page.dart';
 import 'package:bloctuto/bloc_page/bloc_state.dart';
@@ -77,7 +78,10 @@ class _homeState extends State<home> {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              onTap: () {},
+              onTap: () {
+                Auth().logout();
+                BlocProvider.of<blocPage>(context).add(loginEvent());
+              },
             ),
           ],
         ),

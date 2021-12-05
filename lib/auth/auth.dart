@@ -46,4 +46,8 @@ class Auth {
   deletePost(String id) {
     FirebaseFirestore.instance.collection("posts").doc(id).delete();
   }
+
+  logout() async {
+    await FirebaseAuth.instance.signOut();
+  }
 }
