@@ -1,3 +1,4 @@
+import 'package:bloctuto/auth/auth.dart';
 import 'package:flutter/material.dart';
 
 class newPost extends StatefulWidget {
@@ -124,7 +125,12 @@ class _newPostState extends State<newPost> {
                           width: MediaQuery.of(context).size.width * 0.5,
                           child: OutlinedButton(
                             onPressed: () {
-                              if (key.currentState!.validate()) {}
+                              if (key.currentState!.validate()) {
+                                Auth().createPost(
+                                    titleController.text, desController.text);
+                                titleController.text = "";
+                                desController.text = "";
+                              }
                             },
                             child: Text(
                               'Upload Post',
