@@ -20,7 +20,42 @@ class _postListState extends State<postList> {
             shrinkWrap: true,
             itemCount: snapshots.data!.docs.length,
             itemBuilder: (context, index) {
-              return Text("${snapshots.data!.docs[index]['title']}");
+              //return Text("${snapshots.data!.docs[index]['title']}");
+              return Card(
+                color: Color(0xffFFF0EC),
+                elevation: 3,
+                child: Row(
+                  children: [
+                    Container(
+                      width: MediaQuery.of(context).size.width * 0.6,
+                      padding: EdgeInsets.symmetric(
+                        horizontal: 40,
+                        vertical: 20,
+                      ),
+                      child: Text(
+                        "${snapshots.data!.docs[index]['title']}",
+                        style: TextStyle(
+                          fontSize: 18,
+                        ),
+                      ),
+                    ),
+                    IconButton(
+                      onPressed: () {},
+                      icon: Icon(
+                        Icons.edit,
+                        color: Color(0xff4F295D),
+                      ),
+                    ),
+                    IconButton(
+                      onPressed: () {},
+                      icon: Icon(
+                        Icons.delete,
+                        color: Color(0xffFF8573),
+                      ),
+                    ),
+                  ],
+                ),
+              );
             },
           );
         },
