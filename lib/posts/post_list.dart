@@ -1,4 +1,5 @@
 import 'package:bloctuto/auth/auth.dart';
+import 'package:bloctuto/posts/edit_post.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
@@ -40,7 +41,16 @@ class _postListState extends State<postList> {
                       ),
                     ),
                     IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) {
+                              return editPost(snapshots.data!.docs[index].id);
+                            },
+                          ),
+                        );
+                      },
                       icon: Icon(
                         Icons.edit,
                         color: Color(0xff4F295D),

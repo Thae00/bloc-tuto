@@ -29,4 +29,10 @@ class Auth {
         FirebaseFirestore.instance.collection("posts").snapshots();
     yield* posts;
   }
+
+  Future<DocumentSnapshot> getPostId(String id) async {
+    DocumentSnapshot postId =
+        await FirebaseFirestore.instance.collection("posts").doc(id).get();
+    return postId;
+  }
 }
