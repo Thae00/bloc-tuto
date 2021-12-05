@@ -1,4 +1,7 @@
+import 'package:bloctuto/bloc_page/bloc_event.dart';
+import 'package:bloctuto/bloc_page/bloc_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class loginScreen extends StatefulWidget {
   const loginScreen({Key? key}) : super(key: key);
@@ -127,7 +130,10 @@ class _loginScreenState extends State<loginScreen> {
                                 height: 30,
                               ),
                               TextButton(
-                                onPressed: () {},
+                                onPressed: () {
+                                  BlocProvider.of<blocPage>(context)
+                                      .add(registerEvent());
+                                },
                                 child: Text('Create New Account'),
                               ),
                               Container(

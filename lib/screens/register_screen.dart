@@ -1,4 +1,7 @@
+import 'package:bloctuto/bloc_page/bloc_event.dart';
+import 'package:bloctuto/bloc_page/bloc_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class registerScreen extends StatefulWidget {
   const registerScreen({Key? key}) : super(key: key);
@@ -42,6 +45,7 @@ class _registerScreenState extends State<registerScreen> {
                   ),
                   Text(
                     'To all special discounts and more\n become a member!',
+                    textAlign: TextAlign.center,
                     style: TextStyle(
                       color: Color(0xffABA0A8),
                       fontSize: 12,
@@ -95,6 +99,9 @@ class _registerScreenState extends State<registerScreen> {
                                           border: InputBorder.none,
                                         ),
                                       ),
+                                    ),
+                                    SizedBox(
+                                      height: 20,
                                     ),
                                     Container(
                                       decoration: BoxDecoration(
@@ -150,8 +157,11 @@ class _registerScreenState extends State<registerScreen> {
                                 height: 30,
                               ),
                               TextButton(
-                                onPressed: () {},
-                                child: Text('Create New Account'),
+                                onPressed: () {
+                                  BlocProvider.of<blocPage>(context)
+                                      .add(loginEvent());
+                                },
+                                child: Text('Please Login'),
                               ),
                               Container(
                                 color: Color(0xff4F295D),
