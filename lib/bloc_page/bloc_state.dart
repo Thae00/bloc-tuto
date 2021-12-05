@@ -7,3 +7,7 @@ class loginState extends BlocState{}
 class registerState extends BlocState{}
 
 class homeState extends BlocState{}
+
+class newPostState extends BlocState{}
+
+class postListState extends BlocState{}

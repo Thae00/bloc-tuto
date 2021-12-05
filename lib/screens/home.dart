@@ -1,5 +1,10 @@
+import 'package:bloctuto/bloc_page/bloc_event.dart';
+import 'package:bloctuto/bloc_page/bloc_page.dart';
+import 'package:bloctuto/bloc_page/bloc_state.dart';
+import 'package:bloctuto/posts/new_post.dart';
 import 'package:bloctuto/posts/post_list.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class home extends StatefulWidget {
   @override
@@ -7,6 +12,13 @@ class home extends StatefulWidget {
 }
 
 class _homeState extends State<home> {
+  @override
+  void initState() {
+    super.initState();
+
+    BlocProvider.of<blocPage>(context).add(newPostEvent());
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,7 +45,10 @@ class _homeState extends State<home> {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              onTap: () {},
+              onTap: () {
+                BlocProvider.of<blocPage>(context).add(newPostEvent());
+                Navigator.pop(context);
+              },
             ),
             SizedBox(
               height: 20,
@@ -46,7 +61,10 @@ class _homeState extends State<home> {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              onTap: () {},
+              onTap: () {
+                BlocProvider.of<blocPage>(context).add(postListEvent());
+                Navigator.pop(context);
+              },
             ),
             SizedBox(
               height: 20,
@@ -64,7 +82,16 @@ class _homeState extends State<home> {
           ],
         ),
       ),
-      body: postList(),
+      body: BlocBuilder<blocPage, BlocState>(
+          builder: (BuildContext context, state) {
+        if (state is newPostState) {
+          return newPost();
+        } else if (state is postListState) {
+          return postList();
+        } else {
+          return postList();
+        }
+      }),
     );
   }
 }

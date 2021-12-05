@@ -7,5 +7,8 @@ class blocPage extends Bloc<blocEvent, BlocState> {
     on<loginEvent>((event, emit) => emit(loginState()));
     on<registerEvent>((event, emit) => emit(registerState()));
     on<homeEvent>((event, emit) => emit(homeState()));
+
+    on<newPostEvent>((event, emit) => emit(newPostState()));
+    on<postListEvent>((event, emit) => emit(postListState()));
   }
 }
